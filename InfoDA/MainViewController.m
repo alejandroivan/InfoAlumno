@@ -41,6 +41,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+
     [[NSNotificationCenter defaultCenter]
      addObserver:self
      selector:@selector(applicationWillResign)
@@ -55,7 +56,7 @@
 
         
     prefs = [NSUserDefaults standardUserDefaults];
-    firstLoad = YES;
+    firstLoad = YES; // Determina si la aplicación se está recién abriendo
     
     loginScreen = [self.storyboard instantiateViewControllerWithIdentifier:@"Login"];
     loginScreen.mainViewController = self;
@@ -67,26 +68,28 @@
     
     keepLogin = [prefs boolForKey:@"keepLogin"];
     
-    if (firstLoad)
+    if (firstLoad) // Si la aplicación estaba cerrada y se abre...
     {
         
-        if (!keepLogin)
+        if (!keepLogin) // Si no se mantiene la sesión abierta...
         {
             if (self.presentedViewController != loginScreen)
             {
-                //[self presentViewController:loginScreen animated:NO completion:nil];
+                [self presentViewController:loginScreen animated:NO completion:nil];
             }
         }
-        else
+        else // La sesión se quiso mantener abierta, reiniciar sesión
         {
             [self keepSessionAlive];
         }
         
+        // Marcar que la app está abierta (este valor se mantiene cuando está suspendida, pero no
+        // cuando se cierra la app en la barra de multitasking)
         firstLoad = NO;
     }
-    else
+    else // La aplicación estaba abierta, solo se vuelve a mostrar en primer plano
     {
-        if (keepLogin)
+        if (keepLogin) // Si se quiso mantener la sesión abierta, reiniciar sesión
         {
             [self keepSessionAlive];
         }
@@ -113,7 +116,7 @@
     {
         [self keepSessionAlive];
         
-        // Avisar a las subviews (del TabBar) que la aplicación ha vuelto a abrirse
+        // Avisar a las subviews (del TabBar) que la aplicación ha vuelto a abrirse, así dejamos que implementen sus propios métodos para recargar información
         UINavigationController *navigationController = (UINavigationController *) self.selectedViewController;
         UIViewController *activeViewController = [navigationController visibleViewController];
         
@@ -183,6 +186,9 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
+    // Lo siguiente debería ser para internacionalización. Debería buscar otra forma de hacerlo que no dependa del orden específico de las tab.
+    
     /*
     NSUInteger index = 0;
     for (UITabBarItem *item in self.tabBar.items)
@@ -209,7 +215,7 @@
 
 
 /*
- * Deshabilitar rotación, por defecto, a menos que la vista presentada lo soporte
+ * Habilitar rotación
  */
 
 - (BOOL)shouldAutorotate

@@ -85,7 +85,10 @@
 
 - (void)noConnectionError:(NSString *)error
 {
-    [_delegateObject performSelector:_delegateConexionErronea withObject:error];
+    if ( _delegateConexionErronea && [_delegateObject respondsToSelector:_delegateConexionErronea] )
+    {
+        [_delegateObject performSelector:_delegateConexionErronea withObject:error];
+    }
 }
 
 
@@ -98,14 +101,21 @@
     [dict setValue:[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"] forKey:@"version"];
     
     Conexion *conn = [[Conexion alloc] initWithDelegate:self success:@selector(gotJSON:) fail:@selector(errorJSON:)];
+
+    // Dirección para producción del WebService
     [conn sendPOST:@"http://infoalumno.iosdevel.cl/materiales.php" withDictionary:[dict copy]];
-    //[conn sendPOST:@"http://192.168.0.2/infoda/materiales.php" withDictionary:[dict copy]];
+    
+    // Dirección para desarrollo del WebService
+    //[conn sendPOST:@"http://192.168.0.3/infoda/materiales.php" withDictionary:[dict copy]];
 }
 
 - (void)gotJSON:(NSString *)response
 {
     //NSLog(@"JSON: %@", response);
-    [_delegateObject performSelector:_delegateConexionCorrecta withObject:response];
+    if ( _delegateConexionCorrecta && [_delegateObject respondsToSelector:_delegateConexionCorrecta] )
+    {
+        [_delegateObject performSelector:_delegateConexionCorrecta withObject:response];
+    }
 }
 
 - (void)errorJSON:(NSString *)response

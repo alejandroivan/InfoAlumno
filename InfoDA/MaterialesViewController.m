@@ -12,10 +12,6 @@
 #import "INFODA_Materiales.h"
 #import "FileDownloader.h"
 
-// Suscripción in-app
-#import <StoreKit/StoreKit.h>
-#import "MaterialesIAPHelper.h"
-
 @interface MaterialesViewController ()
 {
     NSArray *_products;

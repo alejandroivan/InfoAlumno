@@ -45,8 +45,6 @@
 		2CD91D9816C267E200923720 /* PENDIENTE.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CD91D9616C267E200923720 /* PENDIENTE.png */; };
 		2CD91D9916C267E200923720 /* REPROBADA.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CD91D9716C267E200923720 /* REPROBADA.png */; };
 		2CDA8ED417AA1EDD00AA06D2 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CDA8ED317AA1EDD00AA06D2 /* StoreKit.framework */; };
-		2CDA8EDB17AA1F6600AA06D2 /* IAPHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CDA8EDA17AA1F6600AA06D2 /* IAPHelper.m */; };
-		2CDA8EDE17AA208500AA06D2 /* MaterialesIAPHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CDA8EDD17AA208500AA06D2 /* MaterialesIAPHelper.m */; };
 		2CE5D8D2176D812600F2309B /* Check.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CE5D8D1176D812600F2309B /* Check.png */; };
 		2CE5D8D7176D9DE100F2309B /* CalificacionesAsignaturaCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE5D8D6176D9DE000F2309B /* CalificacionesAsignaturaCell.m */; };
 		2CE6DA3017286AC600B65358 /* MoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE6DA2F17286AC600B65358 /* MoreViewController.m */; };
@@ -113,10 +111,6 @@
 		2CD91D9616C267E200923720 /* PENDIENTE.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PENDIENTE.png; sourceTree = "<group>"; };
 		2CD91D9716C267E200923720 /* REPROBADA.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = REPROBADA.png; sourceTree = "<group>"; };
 		2CDA8ED317AA1EDD00AA06D2 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
-		2CDA8ED917AA1F6600AA06D2 /* IAPHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAPHelper.h; sourceTree = "<group>"; };
-		2CDA8EDA17AA1F6600AA06D2 /* IAPHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAPHelper.m; sourceTree = "<group>"; };
-		2CDA8EDC17AA208500AA06D2 /* MaterialesIAPHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MaterialesIAPHelper.h; sourceTree = "<group>"; };
-		2CDA8EDD17AA208500AA06D2 /* MaterialesIAPHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MaterialesIAPHelper.m; sourceTree = "<group>"; };
 		2CE5D8D1176D812600F2309B /* Check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Check.png; sourceTree = "<group>"; };
 		2CE5D8D5176D9DE000F2309B /* CalificacionesAsignaturaCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalificacionesAsignaturaCell.h; sourceTree = "<group>"; };
 		2CE5D8D6176D9DE000F2309B /* CalificacionesAsignaturaCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalificacionesAsignaturaCell.m; sourceTree = "<group>"; };
@@ -150,7 +144,6 @@
 		2C20046F16A1699D008291FB = {
 			isa = PBXGroup;
 			children = (
-				2CDA8ED817AA1F3900AA06D2 /* InAppPurchases */,
 				2C20048416A1699D008291FB /* InfoAlumno */,
 				2C20047D16A1699D008291FB /* Frameworks */,
 				2C20047B16A1699D008291FB /* Products */,
@@ -311,17 +304,6 @@
 			name = "Semaphore Icons";
 			sourceTree = "<group>";
 		};
-		2CDA8ED817AA1F3900AA06D2 /* InAppPurchases */ = {
-			isa = PBXGroup;
-			children = (
-				2CDA8ED917AA1F6600AA06D2 /* IAPHelper.h */,
-				2CDA8EDA17AA1F6600AA06D2 /* IAPHelper.m */,
-				2CDA8EDC17AA208500AA06D2 /* MaterialesIAPHelper.h */,
-				2CDA8EDD17AA208500AA06D2 /* MaterialesIAPHelper.m */,
-			);
-			name = InAppPurchases;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -426,8 +408,6 @@
 				2C9F3D4D176675C5009C25A1 /* FileDownloader.m in Sources */,
 				2C9F3D5017667A2F009C25A1 /* MaterialesCell.m in Sources */,
 				2CE5D8D7176D9DE100F2309B /* CalificacionesAsignaturaCell.m in Sources */,
-				2CDA8EDB17AA1F6600AA06D2 /* IAPHelper.m in Sources */,
-				2CDA8EDE17AA208500AA06D2 /* MaterialesIAPHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

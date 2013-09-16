@@ -45,6 +45,8 @@
         
         // Generar link de descarga
         self.urlDescarga = [NSString stringWithFormat:@"http://infoalumno.iosdevel.cl/materiales_encriptacion.php?username=%@&password=%@&username_profesor=%@&id_material=%@", username, password, username_profesor, id_material];
+        
+        self.id_material = id_material;
     }
     
     return self;

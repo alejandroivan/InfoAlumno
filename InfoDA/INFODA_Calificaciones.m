@@ -84,25 +84,37 @@
 
 - (void)noConnectionError:(NSString *)error
 {
-    [_delegateObject performSelector:_delegateConexionErronea withObject:error];
+    if ( _delegateConexionErronea && [_delegateObject respondsToSelector:_delegateConexionErronea] )
+    {
+        [_delegateObject performSelector:_delegateConexionErronea withObject:error];
+    }
 }
 
 
 - (void)gotHTML:(NSString *)response
 {
+    // Response debería ser el HTML de la parte de calificaciones, para sea parseado en el WebService
     //NSLog(@"%@", response);
     
     NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
     [dict setValue:response forKey:@"html"];
 
     Conexion *conn = [[Conexion alloc] initWithDelegate:self success:@selector(gotJSON:) fail:nil];
-    [conn sendPOST:@"http://infoalumno.iosdevel.cl/calificaciones.php" withDictionary:[dict copy]];
+    
+
+    // Dirección para desarrollo
     //[conn sendPOST:@"http://192.168.0.3/infoda/calificaciones.php" withDictionary:[dict copy]];
+
+    // Dirección para producción
+    [conn sendPOST:@"http://infoalumno.iosdevel.cl/calificaciones.php" withDictionary:[dict copy]];
 }
 
 - (void)gotJSON:(NSString *)response
 {
-    [_delegateObject performSelector:_delegateConexionCorrecta withObject:response];
+    if ( _delegateConexionCorrecta && [_delegateObject respondsToSelector:_delegateConexionCorrecta] )
+    {
+        [_delegateObject performSelector:_delegateConexionCorrecta withObject:response];
+    }
 }
 
 
