@@ -1,0 +1,9 @@
+/* Localized versions of Info.plist keys */
+
+"LoginScreen_Username" = "Usuario:";
+"LoginScreen_Password" = "Contraseña:";
+"LoginScreen_StayLoggedIn" = "Mantener sesión iniciada:";
+"LoginScreen_Login" = "Iniciar sesión";
+
+"TabBar_Calificaciones" = "Calificaciones";
+"TabBar_InformacionCurricular" = "Inf. Curricular";
